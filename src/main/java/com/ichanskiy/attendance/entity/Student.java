@@ -24,6 +24,9 @@ public class Student extends BaseObject {
     @Column(name = "groups")
     private String groups;
 
+    @Column(name = "photoId")
+    private Long photoId;
+
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Attendance> attendances = new LinkedList<>();
 

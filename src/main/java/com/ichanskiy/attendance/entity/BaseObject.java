@@ -25,5 +25,5 @@ abstract class BaseObject implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+    private Integer id;
 }

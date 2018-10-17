@@ -18,7 +18,7 @@ public class Attendance extends BaseObject {
     private Date date;
 
     @Column(name = "presence")
-    private Boolean presence;
+    private boolean presence;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
