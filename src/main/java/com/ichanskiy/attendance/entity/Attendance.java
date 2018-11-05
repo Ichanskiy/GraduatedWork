@@ -1,5 +1,6 @@
 package com.ichanskiy.attendance.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,5 +23,6 @@ public class Attendance extends BaseObject {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private Student student;
 }

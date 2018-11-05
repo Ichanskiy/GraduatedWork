@@ -1,19 +1,23 @@
 package com.ichanskiy.attendance.entity;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "students")
+@EqualsAndHashCode(callSuper = true)
 public class Student extends BaseObject {
+
+    @Column(name = "login")
+    private String login;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "firstName")
     private String firstName;
@@ -22,14 +26,9 @@ public class Student extends BaseObject {
     private String lastName;
 
     @Column(name = "groups")
-    private String groups;
+    private String group;
 
     @Column(name = "photoId")
     private Long photoId;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Attendance> attendances = new LinkedList<>();
-
 }
-
-
