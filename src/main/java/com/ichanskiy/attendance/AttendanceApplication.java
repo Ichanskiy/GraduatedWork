@@ -21,6 +21,6 @@ public class AttendanceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Runtime.getRuntime().exec("python C:\\Users\\Ichanskiy\\PycharmProjects\\FaceIdWebCam\\FacialRecognition\\main.py", null, new File("C:\\Users\\Ichanskiy\\PycharmProjects\\FaceIdWebCam\\FacialRecognition\\"));
+        Runtime.getRuntime().exec("python C:\\Users\\Ichanskiy\\PycharmProjects\\video_streaming_with_flask_example\\main.py", null, new File("C:\\Users\\Ichanskiy\\PycharmProjects\\FaceIdWebCam\\FacialRecognition\\"));
     }
 }

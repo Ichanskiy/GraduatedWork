@@ -31,4 +31,7 @@ public class Student extends BaseObject {
     @Column(name = "photoId")
     private Long photoId;
 
+    @Column(name = "path")
+    private String photoPath;
+
 }
