@@ -38,13 +38,14 @@ public class RegistrationService {
         createDataSetFromPhoto();
         sleep(1);
         faceTraining();
+        sleep(1);
         removePhoto(INPUT_FOLDER);
         removePhoto(RESULT_FOLDER);
         return successCheckTraining(student);
     }
 
     private Student successCheckTraining(Student student) {
-        if(folderConstrainsStudentPhoto(student)){
+        if (folderConstrainsStudentPhoto(student)) {
             return student;
         } else {
             createPhoto();
@@ -54,8 +55,11 @@ public class RegistrationService {
             sleep(1);
             faceTraining();
             if (folderConstrainsStudentPhoto(student)) {
+                removePhoto(INPUT_FOLDER);
+                removePhoto(RESULT_FOLDER);
                 return student;
             } else {
+                studentRepository.delete(student);
                 return null;
             }
         }
@@ -65,7 +69,7 @@ public class RegistrationService {
         String[] extension = new String[]{"jpg"};
         Collection listFiles = FileUtils.listFiles(new File(DATA_SET_PATH), extension, false);
         for (Object file : listFiles) {
-            if (file.toString().contains(student.getId().toString().concat("."))){
+            if (file.toString().contains(student.getId().toString().concat("."))) {
                 return true;
             }
         }
@@ -84,7 +88,7 @@ public class RegistrationService {
         }
     }
 
-    private void sleep(int seconds){
+    public static void sleep(int seconds) {
         try {
             Thread.sleep(1000 * seconds);
         } catch (InterruptedException e) {
